@@ -1,0 +1,38 @@
+﻿@model InfoBook
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete information about book</h1>
+
+<form method="post" asp-action="DeletePOST">
+	<input asp-for="ID" hidden />
+	<div class"mb-3">
+		<label>Name book</label>
+		<input asp-for="Book.Name" disabled />
+	</div>
+	<div class"mb-3">
+		<label>Author book</label>
+		<input asp-for="Book.Author" disabled />
+	</div>
+	<div class"mb-3">
+		<label>Price book</label>
+		<input asp-for="Book.Price" disabled />
+	</div>
+	<div class"mb-3">
+		<label>ID ticket</label>
+		<input asp-for="TicketID" disabled />
+	</div>
+	<div class"mb-3">
+		<label>Surname reader</label>
+		<input asp-for="Ticket.Reader.Surname" disabled />
+	</div>
+	<div class"mb-3">
+		<label>Name reader</label>
+		<input asp-for="Ticket.Reader.Name" disabled />
+	</div>
+	
+	<button type="submit">Delete book</button>
+	<button><a asp-controller="InfoBook" asp-action="Index">Return to all books</a></button>
+
+</form>

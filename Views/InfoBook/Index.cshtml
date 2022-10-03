@@ -1,0 +1,110 @@
+﻿@model IEnumerable<InfoBook>
+@{
+    ViewData["Title"] = "Index";
+}
+@if(TempData["success"] != null)
+{
+    <h1>@TempData["success"]</h1>
+}
+
+<h1>Information about books</h1>
+<a asp-controller="InfoBook" asp-action="Create" class="btn btn-primary">Add new information about book</a>
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Surname reader
+            </th>
+            <th>
+                Name reader
+            </th>
+            <th>
+                Patronymic name reader
+            </th>
+            <th>
+                Address reader
+            </th>
+            <th>
+                Phone reader
+            </th>
+            <th>
+                Date birth reader
+            </th>
+            <th>
+                ID ticket
+            </th>
+            <th>
+                Name book
+            </th>
+            <th>
+                Author book
+            </th>
+            <th>
+                Price book
+            </th>
+            <th>
+                Date take book
+            </th>
+            <th>
+                Date return book
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var infoBook in Model)
+        {
+            <tr>
+                <td>
+                    @infoBook.Ticket.Reader.Surname
+                </td>
+                <td>
+                   @infoBook.Ticket.Reader.Name
+                </td>
+                <td>
+                    @infoBook.Ticket.Reader.PatronymicName
+                </td>
+                <td>
+                   @infoBook.Ticket.Reader.Address
+                </td>
+                <td>
+                   @infoBook.Ticket.Reader.Phone
+                </td>
+                <td>
+                   @infoBook.Ticket.Reader.DateBirth
+                </td>
+                <td>
+                    @infoBook.Ticket.ID
+                </td>
+                <td>
+                    @infoBook.Book.Name
+                </td>
+                <td>
+                   @infoBook.Book.Author
+                </td>
+                <td>
+                   @infoBook.Book.Price
+                </td>
+                <td>
+                    @infoBook.DateTakeBook
+                </td>
+                @{
+                    if(infoBook.DateReturnBook == null)
+                    {
+                        <td>Book is not returned</td>
+                    }
+                    else
+                    {
+                        <td>@infoBook.DateReturnBook</td>
+                    }
+                }
+                <td>
+                    <a asp-controller="InfoBook" asp-action="Delete" asp-route-id="@infoBook.ID" class="btn btn-danger">Delete information about book</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,26 @@
+﻿@model Ticket
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete information about ticket</h1>
+
+<form method="post" asp-action="DeletePOST">
+	<input asp-for="ID" hidden />
+	<div class"mb-3">
+		<label>Reader id</label>
+		<input asp-for="ReaderID" disabled />
+	</div>
+	<div class"mb-3">
+		<label>Date start</label>
+		<input asp-for="DateStart" disabled />
+	</div>
+	<div class"mb-3">
+		<label>Date end</label>
+		<input asp-for="DateEnd" disabled/>
+	</div>
+	<button type="submit">Delete information about ticket</button>
+	<button><a asp-controller="Ticket" asp-action="Index">Return to all tickets</a></button>
+
+</form>
+

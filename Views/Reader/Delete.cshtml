@@ -1,0 +1,37 @@
+﻿@model Reader
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete Reader</h1>
+
+<form method="post" asp-action="DeletePOST">
+	<input asp-for="ID" hidden />
+	<div class"mb-3">
+		<label>Surname reader</label>
+		<input asp-for="Surname" disabled />
+	</div>
+	<div class"mb-3">
+		<label>Name reader</label>
+		<input asp-for="Name" disabled />
+	</div>
+	<div class"mb-3">
+		<label>Patronymic name reader</label>
+		<input asp-for="PatronymicName" disabled/>
+	</div>
+	<div class"mb-3">
+		<label>Address reader</label>
+		<input asp-for="Address" disabled/>
+	</div>
+	<div class"mb-3">
+		<label>Phone reader</label>
+		<input asp-for="Phone" disabled/>
+	</div>
+	<div class"mb-3">
+		<label>Date birth reader</label>
+		<input type="date" asp-for="DateBirth" disabled/>
+	</div>
+	<button type="submit">Delete reader</button>
+	<button><a asp-controller="Reader" asp-action="Index">Return to all readers</a></button>
+
+</form>

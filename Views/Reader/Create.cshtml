@@ -1,0 +1,40 @@
+﻿@model Reader
+
+
+<h1>Add new reader</h1>
+
+<form method="post">
+	<div class"mb-3">
+		<label>Surname reader</label>
+		<input asp-for="Surname" />
+		<span asp-validation-for="Surname"></span>
+	</div>
+	<div class"mb-3">
+		<label>Name reader</label>
+		<input asp-for="Name" />
+		<span asp-validation-for="Name"></span>
+	</div>
+	<div class"mb-3">
+		<label>Patronymic name reader</label>
+		<input asp-for="PatronymicName" />
+		<span asp-validation-for="PatronymicName"></span>
+	</div>
+	<div class"mb-3">
+		<label>Address reader</label>
+		<input asp-for="Address" />
+		<span asp-validation-for="Address"></span>
+	</div>
+	<div class"mb-3">
+		<label>Phone reader</label>
+		<input asp-for="Phone" />
+		<span asp-validation-for="Phone"></span>
+	</div>
+	<div class"mb-3">
+		<label>Date birth reader</label>
+		<input type="date" asp-for="DateBirth" />
+		<span asp-validation-for="DateBirth"></span>
+	</div>
+	<button type="submit">Add reader</button>
+	<button><a asp-controller="Reader" asp-action="Index">Return to all readers</a></button>
+
+</form>

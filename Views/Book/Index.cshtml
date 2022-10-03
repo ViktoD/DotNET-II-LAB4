@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Book>
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if(TempData["success"] != null)
+{
+    <h1>@TempData["success"]</h1>
+}
+
+<h1>Books</h1>
+<a asp-controller="Book" asp-action="Create" class="btn btn-primary">Add book</a>
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Author
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Year published
+            </th>
+            <th>
+
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var book in Model)
+        {
+            <tr>
+                <td>
+                    @book.ID
+                </td>
+                <td>
+                    @book.Name
+                </td>
+                <td>
+                    @book.Author
+                </td>
+                <td>
+                    @book.Price
+                </td>
+                <td>
+                    @book.YearPublished
+                </td>
+                <td>
+                    <a asp-controller="Book" asp-action="Edit" asp-route-id="@book.ID" class="btn btn-warning">Edit book</a>
+                </td>
+                <td>
+                    <a asp-controller="Book" asp-action="Delete" asp-route-id="@book.ID" class="btn btn-danger">Delete book</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,28 @@
+﻿@model Book
+
+<h1>Add new book</h1>
+<form method="post">
+	<div class"mb-3">
+		<label>Name book</label>
+		<input asp-for="Name" />
+		<span asp-validation-for="Name"></span>
+	</div>
+	<div class"mb-3">
+		<label>Author book</label>
+		<input asp-for="Author" />
+		<span asp-validation-for="Author"></span>
+	</div>
+	<div class"mb-3">
+		<label>Price</label>
+		<input asp-for="Price" min=1 />
+		<span asp-validation-for="Price"></span>
+	</div>
+	<div class"mb-3">
+		<label>Year published</label>
+		<input asp-for="YearPublished" min = 1/>
+		<span asp-validation-for="YearPublished"></span>
+	</div>
+	<button type="submit">Add book</button>
+	<button><a asp-controller="Book" asp-action="Index">Return to all books</a></button>
+
+</form>

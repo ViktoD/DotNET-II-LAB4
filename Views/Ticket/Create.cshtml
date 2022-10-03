@@ -1,0 +1,27 @@
+﻿@model Ticket
+
+
+<h1>Create new ticket</h1>
+
+<form method="post">
+	<div class"mb-3">
+		<label>Choose reader</label>
+		<select asp-for="ReaderID" asp-items="@ViewBag.Readers">
+			<option>Choose reader</option>
+		</select>
+		<span asp-validation-for="ReaderID"></span>
+	</div>
+	<div class"mb-3">
+		<label>Date start</label>
+		<input asp-for="DateStart" />
+		<span asp-validation-for="DateStart"></span>
+	</div>
+	<div class"mb-3">
+		<label>Date end</label>
+		<input asp-for="DateEnd" />
+		<span asp-validation-for="DateEnd"></span>
+	</div>
+	<button type="submit">Create new ticket</button>
+	<button><a asp-controller="Ticket" asp-action="Index">Return to all tickets</a></button>
+
+</form>

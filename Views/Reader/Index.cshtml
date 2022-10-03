@@ -1,0 +1,82 @@
+﻿
+@model IEnumerable<Reader>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if(TempData["success"] != null)
+{
+    <h1>@TempData["success"]</h1>
+}
+
+<h1>Readers</h1>
+
+<a asp-controller="Reader" asp-action="Create" class="btn btn-primary">
+    Add reader
+</a>
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Surname
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Patronymic name
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Phone
+            </th>
+            <th>
+                Date birth
+            </th>
+            <th>
+            </th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var reader in Model)
+        {
+            <tr>
+                <td>
+                    @reader.ID
+                </td>
+                <td>
+                    @reader.Surname
+                </td>
+                <td>
+                    @reader.Name
+                </td>
+                <td>
+                    @reader.PatronymicName
+                </td>
+                <td>
+                    @reader.Address
+                </td>
+                <td>
+                    @reader.Phone
+                </td>
+                <td>
+                    @reader.DateBirth
+                </td>
+                <td>
+                    <a asp-controller="Reader" asp-action="Edit" asp-route-id="@reader.ID" class="btn btn-warning">Edit reader</a>
+                </td>
+                <td>
+                    <a asp-controller="Reader" asp-action="Delete" asp-route-id="@reader.ID" class="btn btn-danger">Delete reader</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
